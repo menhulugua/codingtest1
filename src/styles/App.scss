@@ -2,30 +2,38 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+@mixin box() {
+  text-align: center;
+  flex: 50%;
+  padding: 20px;
+  border: 1px solid black;
+}
+
 main {
   max-width: 1600px;
   margin: auto;
   display: flex;
-  & > div {
-    text-align: center;
-    flex: 50%;
-    padding: 20px;
-    border: 1px solid black;
-  }
+}
+
+.loading, .error {
+  font-size: 20px;
+  text-align: center;
+  flex: 1;
 }
 
 .results {
   margin-right: 20px;
+  @include box;
 }
 
 .saved {
   margin-left: 20px;
+  @include box;
 }
 
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  width: 640px;
+  margin: auto;
 }
 
 .fa-star {
@@ -34,5 +42,33 @@ main {
   bottom: 22px;
   &.fas {
     color: #edb200;
+  }
+}
+
+@media screen and (max-width: 1419px) {
+  .list {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 790px) {
+  main {
+    flex-direction: column;
+  }
+  .results {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+  .saved {
+    margin-left: 0;
+  }
+  .list {
+    width: 640px;
+  }
+}
+
+@media screen and (max-width: 698px) {
+  .list {
+    width: 320px;
   }
 }

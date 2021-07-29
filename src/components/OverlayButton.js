@@ -3,8 +3,11 @@ import styles from '../styles/Card.module.scss';
 import { SavedContext } from '../App';
 
 const OverlayButton = ({type, property}) => {
-  const buttonText = type === 'add'? 'Add Property' : 'Remove Property';
-  const setSaved = useContext(SavedContext).setSaved;
+  let buttonText = type === 'add'? 'Add Property' : 'Remove Property';
+  const {saved, setSaved} = useContext(SavedContext);
+  if (type === 'add' && saved.includes(property))
+    buttonText = 'saved';
+
   const handleClick = () => {
     switch(type) {
       case 'add': 
@@ -20,7 +23,7 @@ const OverlayButton = ({type, property}) => {
 
   return (
     <div className={styles.overlay}>
-      <button className={styles.button} onClick={handleClick}>{buttonText}</button>
+      <button className={styles.button} onClick={handleClick} disabled={buttonText === 'saved'}>{buttonText}</button>
     </div>
   );
 }

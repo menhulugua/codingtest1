@@ -6,6 +6,7 @@
   border-radius: 0.1875rem;
   overflow: hidden;
   margin: 0 10px 2rem;
+  float: left;
   &:hover {
     .overlay {
       display: flex;
@@ -38,6 +39,12 @@
   padding: 10px 20px;
   &:hover {
     background-color: #a30000;
+  }
+  &:disabled {
+    cursor: default;
+    &:hover {
+      background-color: #e4002b;
+    }
   }
 }
 
