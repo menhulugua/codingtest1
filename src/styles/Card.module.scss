@@ -1,6 +1,11 @@
 .card {
   width: 300px;
   position: relative;
+  text-align: left;
+  box-shadow: rgb(0 0 0 / 20%) 0px 0.0625rem 0.1875rem 0px;
+  border-radius: 0.1875rem;
+  overflow: hidden;
+  margin: 0 10px 2rem;
   &:hover {
     .overlay {
       display: flex;
@@ -26,4 +31,22 @@
 
 .button {
   cursor: pointer;
+  border: none;
+  background-color: #e4002b;
+  border-radius: 4px;
+  color: #fff;
+  padding: 10px 20px;
+  &:hover {
+    background-color: #a30000;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.footer {
+  padding: 20px;
 }
