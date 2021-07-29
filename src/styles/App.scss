@@ -1,0 +1,23 @@
+main {
+  display: flex;
+  & > div {
+    text-align: center;
+    flex: 50%;
+    padding: 20px;
+    border: 1px solid black;
+  }
+}
+
+.results {
+  margin-right: 20px;
+}
+
+.saved {
+  margin-left: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
