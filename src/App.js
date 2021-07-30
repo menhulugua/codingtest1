@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useReducer } from 'react';
 import data from './properties.json';
+import axios from 'axios';
+
 import './styles/App.scss';
 import Card from './components/Card';
 import OverlayButton from './components/OverlayButton';
@@ -26,25 +28,35 @@ const App = () => {
   }
   const [saved, setSaved] = useReducer(savedReducer, []); 
 
-  const fetchData = () => {
-    return new Promise((resolved, rejected) => {
-      setTimeout(() => {
-        if (data.results && data.saved)
-          resolved(data);
-        else
-          rejected();
-      }, 500);
-    });
-  }
-
   useEffect(() => {
-    fetchData().then(data => {
+    axios.get("https://jsonkeeper.com/b/X8H0").then(({data}) => {
       setResults(data.results);
       setSaved({type: 'initialise', payload:data.saved});
       setLoadingState(1);
     }).catch(error => {
       setLoadingState(2);
     });
+
+    /* If the link doesn't work, use the code below to load local json file */
+
+    // const fetchData = () => {
+    //   return new Promise((resolved, rejected) => {
+    //     setTimeout(() => {
+    //       if (data.results && data.saved)
+    //         resolved(data);
+    //       else
+    //         rejected();
+    //     }, 500);
+    //   });
+    // }
+
+    // fetchData().then(data => {
+    //   setResults(data.results);
+    //   setSaved({type: 'initialise', payload:data.saved});
+    //   setLoadingState(1);
+    // }).catch(error => {
+    //   setLoadingState(2);
+    // });
   }, []);
 
   return (
