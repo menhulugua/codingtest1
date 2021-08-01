@@ -16,7 +16,7 @@ const Card = ({details, children}) => {
         {isSaved? <i className="fas fa-star"></i> : <i className="far fa-star"></i>}
       </div>
       <div className={styles.footer}>
-          <span>Price</span>
+          <span>Price </span>
           <span>{price}</span>
       </div>
       {children}

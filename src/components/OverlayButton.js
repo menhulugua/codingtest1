@@ -23,7 +23,7 @@ const OverlayButton = ({type, property}) => {
 
   return (
     <div className={styles.overlay}>
-      <button className={styles.button} onClick={handleClick} disabled={buttonText === 'saved'}>{buttonText}</button>
+      <button role="btn" className={styles.button} onClick={handleClick} disabled={buttonText === 'saved'}>{buttonText}</button>
     </div>
   );
 }
