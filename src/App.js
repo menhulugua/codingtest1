@@ -29,7 +29,7 @@ const App = () => {
   const [saved, setSaved] = useReducer(savedReducer, []); 
 
   useEffect(() => {
-    axios.get("https://jsonkeeper.com/b/X8H0").then(({data}) => {
+    axios.get("/b/X8H0").then(({data}) => {
       setResults(data.results);
       setSaved({type: 'initialise', payload:data.saved});
       setLoadingState(1);

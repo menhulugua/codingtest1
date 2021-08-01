@@ -38,5 +38,6 @@
   },
   "devDependencies": {
     "sass": "^1.36.0"
-  }
+  },
+  "proxy": "https://jsonkeeper.com"
 }
